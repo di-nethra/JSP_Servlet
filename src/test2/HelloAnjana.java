@@ -12,7 +12,9 @@ public class HelloAnjana extends HttpServlet{
 
 	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException{
 		
-		res.getWriter().println("Hello anjana");
+		int k=(int)req.getAttribute("key");
+	    int value=k*k;
+		res.getWriter().println(value);
 		
 	}
 }

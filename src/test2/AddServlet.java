@@ -21,6 +21,7 @@ public class AddServlet extends HttpServlet  {
 		int result=a+b;
 		
 		res.getWriter().println("result is:"+result);
+		req.setAttribute("key",result);
 		
 		RequestDispatcher rd=req.getRequestDispatcher("hello");
 		rd.forward(req, res);
