@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<form action="#" method="post">
-username <input type="text" name="uid"><br>
+<form action="log" method="post">
+user name <input type="text" name="uid"><br>
 password <input type="password" name="pass"><br>
 
 <input type="submit" name="submit" value="login"><br>

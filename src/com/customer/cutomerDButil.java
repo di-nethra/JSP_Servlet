@@ -20,8 +20,8 @@ public class cutomerDButil {
     	
     	try {
     		Class.forName("com.mysql.jbdc.Driver");
-    		Connection con=DriverManager.getConnection(url, user, pass);
-    		Statement stst=con.createStatement();
+    		Connection conn=DriverManager.getConnection(url, user, pass);
+    		Statement stst=conn.createStatement();
     		String sql="select * from customer where username='"+username+"'and password='"+password+"'";
     		ResultSet rs=stst.executeQuery(sql);
     		
@@ -35,6 +35,7 @@ public class cutomerDButil {
     			Customer cust=new Customer(custID,name,usernm,email,pass1);
     			cus.add(cust);
     		}
+    		
     	}
     	catch(Exception e) {
     		e.printStackTrace();

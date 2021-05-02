@@ -1,6 +1,9 @@
 package com.customer;
 
 import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +25,15 @@ public class loginServlet extends HttpServlet {
 		
 		String username=request.getParameter("uid");
 		String password=request.getParameter("pass");
+		try {
+		List<Customer>cusDetails=cutomerDButil.validate(username,password);
+		request.setAttribute("cusresults",cusDetails);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
-		
+		RequestDispatcher dis=request.getRequestDispatcher("useraccount.jsp");
+		dis.forward(request,response);
 	}
 
 }
